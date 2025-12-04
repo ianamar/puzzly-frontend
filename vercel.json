@@ -3,8 +3,8 @@
     {
       "source": "/api/:path*",
       "destination": "https://puzzly-backend-production.up.railway.app/api/:path*"
-    }
-    { "source": "/login", "destination": "https://puzzly-backend-production.up.railway.app/login" }
+    },
+    { "source": "/login", "destination": "https://puzzly-backend-production.up.railway.app/login" },
     { "source": "/logout", "destination": "https://puzzly-backend-production.up.railway.app/logout" }
   ]
 }
