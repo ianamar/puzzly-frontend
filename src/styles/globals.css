@@ -1,0 +1,553 @@
+/* src/styles/globals.css */
+
+/* Reset sencillo */
+body, h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f7f8fa;
+  color: #333131;
+}
+
+/* Navbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+.topbar-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.topbar-logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.topbar-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background-image: url('/images/hero_bg2.jpg'); 
+  background-size: cover;      
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.hero p {
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn-primary:hover {
+  background: #006ae6;
+}
+.btn-secondary {
+  background: white;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn-secondary:hover {
+  background: #eaf2ff;
+}
+
+.categories-section {
+  padding: 3rem 0;
+  text-align: center; /* centra título y subtítulo */
+}
+
+.categories-section .container {
+  max-width: 900px; /* limita el ancho total */
+  margin: 0 auto; /* centra horizontalmente */
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.section-sub {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* CATEGORÍAS (grid centrado 3x3)*/
+.categories-section {
+  padding: 3rem 0;
+  text-align: center; 
+}
+
+.categories-container {
+  max-width: 900px; 
+  margin: 0 auto; 
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.section-sub {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 1.2rem;
+  justify-items: center; /* centra los elementos dentro */
+}
+
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 columnas */
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-grid {
+    grid-template-columns: 1fr; /* móvil: 1 columna */
+  }
+}
+
+.category-tile {
+  width: 100%;
+  max-width: 250px; /* límite para que no sean gigantes */
+  height: 140px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #1f2937; /* color por defecto */
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  border: 1px solid transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+/* añade overlay para mejorar contraste con la letra */
+.category-tile[style*="background-image"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18));
+  pointer-events: none;
+}
+
+.category-tile[style*="background-image"] .category-name {
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Efecto hover y foco */
+.category-tile:hover,
+.category-tile:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.12);
+  border-color: rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+/* texto del nombre centrado */
+.category-name { font-size: 1.05rem; z-index: 2; }
+
+
+/* Categoría */
+.category-header {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.category-header h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+.category-sub { color: #555; margin-bottom: 1.35rem; }
+
+/* 3 columnas en desktop */
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* columnas flexibles */
+  gap: 1.5rem;
+  justify-items: center;
+  max-width: 900px;  
+  margin: 0 auto;
+}
+
+
+
+/* Responsive: reduce columnas en pantallas pequeñas */
+@media (max-width: 1100px) {
+  .puzzle-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .puzzle-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Tarjeta de puzzle */
+.puzzle-tile {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(16,24,40,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .15s ease, box-shadow .15s ease;
+  border: 1px solid transparent;
+  width: 100%;
+  max-width: 250px; 
+}
+
+.puzzle-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(16,24,40,0.12);
+  border-color: rgba(0,0,0,0.04);
+}
+
+/* Imagen */
+.puzzle-thumb-img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* mantiene proporción */
+  background-color: #f3f4f6;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Texto */
+.puzzle-caption {
+  padding: 0.6rem 0.75rem 0.9rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: center;
+}
+.puzzle-name { font-weight: 600; font-size: 0.95rem; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.puzzle-meta { color: #6b7280; font-size: 0.85rem; }
+
+@media (min-width: 640px) {
+  .category-header { text-align: left; }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Contenedor general login */
+.login-container {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  min-height: 70vh;
+}
+
+/* Caja interior para controlar anchura y espaciado */
+.login-inner {
+  width: 100%;
+  max-width: 520px; /* controla ancho del área del formulario */
+}
+
+/* Heading grande, con espacio abajo */
+.login-heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem 0;
+  color: #222;
+}
+
+/* Formulario: separación entre filas */
+.login-form {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  box-sizing: border-box;
+}
+
+/* Cada fila (label + input) */
+.form-row {
+  margin-bottom: 0.9rem;
+}
+
+/* Label en su propia línea, pequeño y con espaciado */
+.login-label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Inputs ocupan todo el ancho */
+.login-input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d7dbe0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: box-shadow .18s ease, border-color .18s ease;
+  background-color: #fff; 
+}
+
+/* Foco claro */
+.login-input:focus {
+  outline: none;
+  border-color: #2b7cff;
+  box-shadow: 0 4px 14px rgba(43, 124, 255, 0.14);
+}
+
+/* Botón centrado y ancho completo */
+.login-button {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #0069e0;
+}
+
+/* Error */
+.login-error {
+  background: #fff4f4;
+  color: #b30000;
+  border: 1px solid #ffd6d6;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+
+/* Responsive: menos ancho en pantallas pequeñas */
+@media (max-width: 480px) {
+  .login-inner { padding: 0 0.5rem; }
+  .login-form { padding: 1rem; }
+  .login-heading { font-size: 1.8rem; }
+}
+
+/*botones en la portada */
+.random-btn {
+  background-color: #734C36 !important;
+
+}
+
+.random-btn:hover {
+  background-color: #937362 !important;
+
+}
+
+.subir-btn {
+  background-color: #D9B391 !important;
+  color: #260801 !important;
+  border-color:  #D9B391;
+}
+
+.subir-btn:hover {
+  background-color: #937362 !important;
+
+}
+
+/* UPLOAD */
+.upload-container {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 70vh;
+}
+
+/* Caja interior */
+.upload-inner {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* Título */
+.upload-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem 0;
+  color: #222;
+  text-align: center;
+}
+
+/* Caja del formulario */
+.upload-form {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  box-sizing: border-box;
+}
+
+/* Cada fila */
+.form-row {
+  margin-bottom: 0.9rem;
+}
+
+/* Label */
+.upload-label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Inputs */
+.upload-input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d7dbe0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.upload-input:focus {
+  outline: none;
+  border-color: #2b7cff;
+  box-shadow: 0 4px 14px rgba(43, 124, 255, 0.14);
+}
+
+/* Preview */
+.upload-preview {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.upload-preview img {
+  max-width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Error */
+.upload-error {
+  background: #fff4f4;
+  color: #b30000;
+  border: 1px solid #ffd6d6;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .upload-inner { padding: 0 0.5rem; }
+  .upload-form { padding: 1rem; }
+  .upload-heading { font-size: 1.8rem; }
+}
+
+/* Contenedor principal para centrar el puzzle */
+.puzzle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Barra superior */
+.puzzle-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Texto del estado */
+.puzzle-status {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Contenedor que centra el canvas dentro del contenedor */
+.puzzle-canvas-container {
+  display: flex;
+  justify-content: center;   
+  width: 100%;
+}
+
+/* Bordes y sombra del puzzle */
+.puzzle-canvas {
+  padding: 6px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+}
+
+/*barra de busqueda*/
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+.search-input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
